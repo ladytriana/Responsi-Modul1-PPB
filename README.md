@@ -28,4 +28,29 @@ API ini menggunakan satu tabel utama bernama `items` di Supabase dengan struktur
 | `tanggal_masuk` | `timestamptz` | Tanggal sepatu diterima, diisi otomatis. |
 | `tanggal_selesai`| `timestamptz` | Tanggal sepatu selesai, diisi otomatis. |
 
----
+## Contoh Penggunaan API
+
+#### 1. GET /items - Mengambil Semua Data
+Mendapatkan daftar semua orderan, diurutkan dari yang terbaru.
+**Response (200 OK):**
+```
+ [
+    {
+        "id": 13,
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Vans",
+        "nama_pelanggan": "Triana",
+        "status": "Selesai",
+        "tanggal_masuk": "2025-10-18",
+        "tanggal_selesai": "2025-10-18"
+    },
+    {
+        "id": 12,
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Adidas Samba",
+        "nama_pelanggan": "Lady",
+        "status": "Selesai",
+        "tanggal_masuk": "2025-10-18",
+        "tanggal_selesai": "2025-10-18"
+    }
+ ]
