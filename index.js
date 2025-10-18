@@ -24,7 +24,6 @@ const formatItemDates = (item) => {
   if (!item) return null;
   return {
     ...item,
-    // PENYESUAIAN: Format created_at agar menjadi tanggal saja
     created_at: item.created_at ? item.created_at.substring(0, 10) : null,
     tanggal_masuk: item.tanggal_masuk ? item.tanggal_masuk.substring(0, 10) : null,
     tanggal_selesai: item.tanggal_selesai ? item.tanggal_selesai.substring(0, 10) : null,
@@ -60,6 +59,31 @@ app.get('/items', async (req, res) => {
     res.status(500).json({ error: 'Gagal mengambil data: ' + error.message });
   }
 });
+
+// --- PENAMBAHAN ENDPOINT BARU ---
+// GET /items/:id -> Baca satu data berdasarkan ID
+app.get('/items/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const { data, error } = await supabase
+      .from('items')
+      .select('*')
+      .eq('id', id)
+      .single(); // .single() untuk memastikan hanya satu objek yang kembali
+
+    if (error) throw error;
+    if (!data) {
+      return res.status(404).json({ error: `Item dengan ID ${id} tidak ditemukan.` });
+    }
+
+    // Kirim kembali data yang sudah diformat tanggalnya
+    res.status(200).json(formatItemDates(data));
+  } catch (error) {
+    res.status(500).json({ error: 'Gagal mengambil data: ' + error.message });
+  }
+});
+// --- AKHIR PENAMBAHAN ---
 
 // POST /items -> Buat data baru
 app.post('/items', async (req, res) => {
@@ -111,7 +135,7 @@ app.put('/items/:id', async (req, res) => {
       .single();
       
     if (error) throw error;
-    if (!data) return res.status(444).json({ error: `Item dengan ID ${id} tidak ditemukan.` });
+    if (!data) return res.status(404).json({ error: `Item dengan ID ${id} tidak ditemukan.` });
 
     res.status(200).json(formatItemDates(data));
   } catch (error) {
