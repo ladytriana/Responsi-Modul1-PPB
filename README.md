@@ -7,3 +7,11 @@ Tujuan utama dari proyek ini adalah menyediakan backend service yang andal untuk
 * **Penguasaan Framework:** Memperdalam pemahaman praktis tentang Express.js untuk membangun server backend yang efisien, mulai dari routing hingga penanganan request.
 * **Standardisasi Data:** Memanfaatkan JSON sebagai format standar untuk struktur request dan response, memastikan komunikasi yang lancar antara klien dan server.
 * **Relevansi Proyek:** Mengembangkan sebuah API yang solutif dan dapat diterapkan langsung pada studi kasus bisnis di dunia nyata.
+
+## Fitur Utama API
+| Metode | Endpoint | Deskripsi |
+| :--- | :--- | :--- |
+| **GET** | `/items` | Menampilkan seluruh daftar sepatu yang sedang dicuci. |
+| **POST** | `/items` | Menambahkan data sepatu baru ke dalam daftar. |
+| **PUT** | `/items/:id` | Memperbarui status sepatu (misalnya dari Sedang Dicuci menjadi Selesai). |
+| **DELETE** | `/items/:id` | Menghapus data sepatu yang sudah selesai dicuci. |
