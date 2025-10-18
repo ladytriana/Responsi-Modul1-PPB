@@ -15,3 +15,17 @@ Tujuan utama dari proyek ini adalah menyediakan backend service yang andal untuk
 | **POST** | `/items` | Menambahkan data sepatu baru ke dalam daftar. |
 | **PUT** | `/items/:id` | Memperbarui status sepatu (misalnya dari Sedang Dicuci menjadi Selesai). |
 | **DELETE** | `/items/:id` | Menghapus data sepatu yang sudah selesai dicuci. |
+
+## Struktur Data
+API ini menggunakan satu tabel utama bernama `items` di Supabase dengan struktur kolom sebagai berikut:
+| Nama Kolom | Tipe Data | Deskripsi |
+| :--- | :--- | :--- |
+| `id` | `int8` | Primary Key, nomor unik untuk setiap order. |
+| `created_at` | `timestamptz` | Waktu kapan data pertama kali dibuat. |
+| `nama_sepatu` | `text` | Nama atau jenis sepatu yang dicuci. |
+| `nama_pelanggan` | `text` | Nama pelanggan. |
+| `status` | `text` | Status pengerjaan (contoh: 'Diterima', 'Selesai'). |
+| `tanggal_masuk` | `timestamptz` | Tanggal sepatu diterima, diisi otomatis. |
+| `tanggal_selesai`| `timestamptz` | Tanggal sepatu selesai, diisi otomatis. |
+
+---
