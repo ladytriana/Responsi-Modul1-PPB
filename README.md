@@ -59,6 +59,7 @@ Response (200 OK):
 
 #### 2. POST /items - Membuat Data Baru
 Menambahkan orderan baru ke dalam sistem.
+
 Request Body:
 ```
 {
@@ -67,6 +68,7 @@ Request Body:
   "status": "Selesai"
 }
 ```
+
 Response (201 Created):
 ```
 {
@@ -83,12 +85,14 @@ Response (201 Created):
 #### 3. PUT /items/:id - Memperbarui Data
 Mengubah status orderan yang sudah ada.
 Request URL : https://responsi-modul1-ppb-two.vercel.app/items/14
+
 Request Body: 
 ```
 {
   "status": "Selesai"
 }
 ```
+
 Response (200 OK):
 ```
 {
@@ -104,7 +108,9 @@ Response (200 OK):
 
 #### 4. DELETE /items/:id - Menghapus Data
 Menghapus orderan dari sistem berdasarkan ID-nya.
+
 Request URL: https://responsi-modul1-ppb-two.vercel.app/items/14
+
 Response (200 OK):
 ```
 {
