@@ -32,6 +32,7 @@ API ini menggunakan satu tabel utama bernama `items` di Supabase dengan struktur
 
 #### 1. GET /items - Mengambil Semua Data
 Mendapatkan daftar semua orderan, diurutkan dari yang terbaru.
+
 Response (200 OK):
 ```
  [
